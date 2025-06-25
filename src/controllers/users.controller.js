@@ -158,6 +158,9 @@ async function getUserPagination(req, res, next) {
             res.status(400).json({ message: 'Invalid input for page'});
         }
         page = parseInt(page);
+        if(page < 1){
+            res.status(400).json({ message: 'Invalid input for page'});
+        }
         if(!limit){
             limit = userLimit.TEN;
         }
